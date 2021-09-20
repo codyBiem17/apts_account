@@ -13,6 +13,26 @@
     padding-left: 10px;
     padding-right: 10px;
 }
+.custom-navbar > ul{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    list-style: none;
+}
+.custom-navbar > ul li{
+    margin: 0 10px;
+}
+.custom-navbar > ul li:nth-child(2){
+    position: relative;
+}
+.custom-navbar > ul li:nth-child(2) span{
+    position: absolute;
+    top: -2px;
+    left: 10px; 
+    font-size: 8px;
+    border-radius: 50%;
+    background-color: rgb(128, 3, 117);
+}
 .navbar-brand{
     font-size: 16px;
 }
@@ -25,9 +45,28 @@ ul.navbar-nav li {
     margin: 0 10px;
     text-align: center;
 }
+.profile-container{
+    padding-left: 0;
+    padding-right: 0;
+}
 .profile-header{
-    margin: 15px auto 5px;
+    width: 100%;
+    margin: 15px auto 25px;
+}
+.profile-header h4{
+    display: inline;
 }
 .profile-header span{
-    color: rgb(1, 1, 197);
+    color: rgb(128, 3, 117);
+}
+img{
+    width: 20%;
+    height: auto;
+}
+.user-details .row{
+   margin-bottom: 10px;
+}
+.location-icon{
+    margin-left: -6px;
+    margin-right: -10px;
 }

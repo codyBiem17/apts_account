@@ -2,6 +2,13 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import { Profile, SideNav } from './components';
 import './App.css';
 import {Container, Row, Col} from 'reactstrap'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import {faLocationArrow, faMobileAlt, faShoppingCart, faUserCircle } from '@fortawesome/free-solid-svg-icons'
+
+
+
+library.add(fab, faLocationArrow, faMobileAlt, faShoppingCart, faUserCircle)
 
 function App() {
   return (
