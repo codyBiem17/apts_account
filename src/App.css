@@ -1,13 +1,13 @@
 .app-parent-row{
-    border: 1px solid red;
-    border-radius: 7px;
+    box-shadow: 10px 10px 33px 0px rgba(0,0,0,0.41);
+    -webkit-box-shadow: 10px 10px 33px 0px rgba(0,0,0,0.41);
+    -moz-box-shadow: 10px 10px 33px 0px rgba(0,0,0,0.41);;
 }
 .pages-col{
     padding-left: 0;
     padding-right: 0;
 }
 .custom-navbar{
-    /* margin-left: -12px; */
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
     padding-left: 10px;
@@ -50,8 +50,9 @@ ul.navbar-nav li {
     padding-right: 0;
 }
 .profile-header{
-    width: 100%;
-    margin: 15px auto 25px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    text-align: center;
 }
 .profile-header h4{
     display: inline;
@@ -63,10 +64,15 @@ img{
     width: 20%;
     height: auto;
 }
+.row.user-details > .col-12, .likes-and-dislikes > .col-12{
+    margin: auto 13px;
+}
 .user-details .row{
    margin-bottom: 10px;
 }
 .location-icon{
-    margin-left: -6px;
+    margin-left: -7px;
     margin-right: -10px;
+    position: relative;
+    left: 3px;
 }
