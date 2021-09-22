@@ -14,7 +14,7 @@ const OrderSummaryPage = () => {
                 const url = 'https://indapi.kumba.io/webdev/assignment'
                 const userOrderDetails = await axios.get(url)
                 // console.log(userData.data.user.likes[2])
-                setUserOrderDetails(userData.data)
+                setUserOrderDetails(userOrderDetails.data)
             }
             catch (err){
                 console.log(err)
