@@ -1,5 +1,5 @@
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import { Profile, SideNav } from './components';
+import { OrderSummaryPage, Profile, SideNav } from './components';
 import './App.css';
 import {Container, Row, Col} from 'reactstrap'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -22,6 +22,7 @@ function App() {
             <Router>
                 <Switch>
                   <Route exact path="/" component={Profile} />
+                  <Route exact path="/order" component={OrderSummaryPage} />
                   {/* <Route path="/about" component={About} />
                   <Route path="/how_it_works" component={Guides} />
                   <Route exact path="/faq" component={Faq} />
