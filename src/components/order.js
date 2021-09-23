@@ -1,21 +1,29 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios'
 import { Container, Row, Col, Table } from "reactstrap";
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 
 const OrderSummaryPage = () => {
-    const [userOrderDetails, setUserOrderDetails] = useState({})
     const [loading, setLoading] = useState(true)
+    const [orderDetails, setOrderDetails] = useState({})
+    const [total, setTotal] = useState(null)
+  
 
     useEffect(()=>{
         const getUserOrder = async () => {
             try{
                 const url = 'https://indapi.kumba.io/webdev/assignment'
                 const userOrder = await axios.get(url)
-                // console.log(userData.data.user.likes[2])
-                setUserOrderDetails(userOrder.data.user)
+                setOrderDetails(userOrder.data)
+                const subtotal = userOrder.data.items.map(item => {
+                    const itemCost = item.price * item.quantity
+                    const totalSalesTax = itemCost * (item.tax_pct / 100)
+                    const getTotalTaxSales = totalSalesTax + itemCost
+                    return getTotalTaxSales
+                })
+                const getTotalBill = subtotal.reduce( (x,y) => x + y )
+                setTotal(getTotalBill)   
                 setLoading(false)
             }
             catch (err){
@@ -25,50 +33,164 @@ const OrderSummaryPage = () => {
         getUserOrder()
     }, [])
 
+  
+
     return (
         <>
             {
                 loading ? 'loading...' :
-                <Container fluid={true} className="">
+                <Container fluid={true} className="order-container">
                     <Row>
                         <Col xs="12">
-                            <h5>Your Order has been Confirmed!</h5>
-                            <p>Hi {userOrderDetails.name}, </p>
+                            <h4 className="text-center"> {orderDetails.restaurant.name} </h4>
+                        </Col>
+                        <Col xs="12">
+                            <p id="order-page-user-greeting">Hi <span> {orderDetails.user.name}, </span> </p>
                             <p>
-                                Thank you for your patronage. Your order has been Confirmed
-                                and will be shipping soon
+                                Your order has been Confirmed and will be shipping soon
                             </p>
                         </Col>
                         <hr />
                         <Col xs="12">
-                            <p>Check Order Details</p>
+                            <p className="h5">Check Order Details</p>
                             <Table borderless>
-                                <thead>
+                                {/* <thead className="">
                                     <tr>
-                                    <th>Order Id</th>
-                                    <th>Order Date</th>
-                                    <th>Name</th>
-                                    <th>Address</th>
-                                    <th>Phone</th>
+                                        <th scope="row">Order Id</th>
+                                        <th scope="row">Order Date</th>
+                                        <th scope="row">Name</th>
+                                        <th scope="row">Address</th>
+                                        <th scope="row">Phone</th>
                                     </tr>
-                                </thead>
-                                <tbody>
+                                </thead> */}
+                                <tbody className="d-md-none">
                                     <tr>
-                                    <th scope="row">1</th>
-                                    <td>{userOrderDetails.order_id}</td>
-                                    <td>22 Sept, 2021</td>
-                                    <td>{userOrderDetails.name}</td>
-                                    <td>{userOrderDetails.address}</td>
-                                    <td>{userOrderDetails.phone}</td>
+                                        <th scope="row">
+                                            Order Id
+                                        </th>
+                                        <td>
+                                            <p>{orderDetails.order_id}</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            Order Date
+                                        </th>
+                                        <td>
+                                            <p>22 Sept, 2021</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            Name
+                                        </th>
+                                        <td>
+                                            <p>{orderDetails.user.name}</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            Address
+                                        </th>
+                                        <td>
+                                            <p>{orderDetails.user.address}</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            Phone
+                                        </th>
+                                        <td>
+                                            <p>{orderDetails.user.phone}</p>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </Table>
                         </Col>
                         <hr />
                         <Col xs="12">
-                            <p>Item Details</p>
-                            <Table>
-                                
+                            <p className="h5">Item Details</p>
+                            <Table borderless>
+                                {/* <thead className="">
+                                    <tr>
+                                        <th scope="row">Order Id</th>
+                                        <th scope="row">Order Date</th>
+                                        <th scope="row">Name</th>
+                                        <th scope="row">Address</th>
+                                        <th scope="row">Phone</th>
+                                    </tr>
+                                </thead> */}
+                                <tbody className="d-md-none">
+                                    {
+                                        orderDetails.items.map(item => {
+                                            return (
+                                                <div className="items">
+                                                    <tr>
+                                                        <th scope="row">
+                                                            Food-Name
+                                                        </th>
+                                                        <td>
+                                                            <p>{item.name}</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">
+                                                            Category
+                                                        </th>
+                                                        <td>
+                                                            <p>{item.category}</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">
+                                                            Price
+                                                        </th>
+                                                        <td>
+                                                            <p>{item.price}</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">
+                                                            Tax_pct
+                                                        </th>
+                                                        <td>
+                                                            <p>{item.tax_pct}</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">
+                                                            Quantity
+                                                        </th>
+                                                        <td>
+                                                            <p>{item.quantity}</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr className="h5 subtotal">
+                                                        <th scope="row">
+                                                            Subtotal
+                                                        </th>
+                                                        <td>
+                                                            <p>{item.price * item.quantity}</p>
+                                                        </td>
+                                                    </tr>
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                </tbody>
+                            </Table>
+                        </Col>
+                        <hr />
+                        <Col xs="12">
+                            <Table> 
+                                <tr className="h5 subtotal">
+                                    <th scope="row">
+                                        Total
+                                    </th>
+                                    <td>
+                                        {total}
+                                    </td>
+                                </tr> 
                             </Table>
                         </Col>
                     </Row>

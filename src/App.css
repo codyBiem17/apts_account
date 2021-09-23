@@ -76,3 +76,31 @@ img{
     position: relative;
     left: 3px;
 }
+
+
+/* ******Order Summary Page****** */
+.order-container{
+    margin-top: 15px;
+    margin-bottom: 25px;
+    text-align: justify;
+}
+#order-page-user-greeting{
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 5px;
+    margin-top: 30px;
+}
+.items{
+    /* border: 2px solid rgba(0,0,0,0.75);; */
+    box-shadow: 6px 5px 5px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: 6px 5px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 6px 5px 5px 0px rgba(0,0,0,0.75);
+    margin-bottom: 20px;
+    padding: 10px 10px;
+}
+.subtotal{
+    color: rgb(128, 3, 117);
+}
+tbody hr {
+    margin-top: 30px;
+}
