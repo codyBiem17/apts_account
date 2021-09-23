@@ -1,31 +1,11 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios'
 import { Container, Row, Col, List } from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ProfileImage from '../assets/images/hijabi1.png'
 import { LocationMarkerIcon } from '@heroicons/react/solid'
 
 
-const Profile = () => {
-    const [userDetails, setUserDetails] = useState({})
-    const [loading, setLoading] = useState(true)
-
-    useEffect(()=>{
-        const getUser = async () => {
-            try{
-                const url = 'https://indapi.kumba.io/webdev/assignment'
-                const userData = await axios.get(url)
-                const getUserDetails = userData.data.user
-                setUserDetails(getUserDetails)
-                setLoading(false)
-            }
-            catch (err){
-                console.log(err)
-            }
-        }
-        getUser()
-    }, [])
-
+const Profile = ({userDetails, loading}) => {
+ 
     return (
         <>
             {

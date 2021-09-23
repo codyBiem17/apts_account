@@ -1,39 +1,8 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios'
 import { Container, Row, Col, Table } from "reactstrap";
+import FastFood from '../assets/images/fast-food.png'
 
 
-
-const OrderSummaryPage = () => {
-    const [loading, setLoading] = useState(true)
-    const [orderDetails, setOrderDetails] = useState({})
-    const [total, setTotal] = useState(null)
-  
-
-    useEffect(()=>{
-        const getUserOrder = async () => {
-            try{
-                const url = 'https://indapi.kumba.io/webdev/assignment'
-                const userOrder = await axios.get(url)
-                setOrderDetails(userOrder.data)
-                const subtotal = userOrder.data.items.map(item => {
-                    const itemCost = item.price * item.quantity
-                    const totalSalesTax = itemCost * (item.tax_pct / 100)
-                    const getTotalTaxSales = totalSalesTax + itemCost
-                    return getTotalTaxSales
-                })
-                const getTotalBill = subtotal.reduce( (x,y) => x + y )
-                setTotal(getTotalBill)   
-                setLoading(false)
-            }
-            catch (err){
-                console.log(err)
-            }
-        }
-        getUserOrder()
-    }, [])
-
-  
+const OrderSummaryPage = ({loading, orderDetails, total}) => {
 
     return (
         <>
@@ -41,8 +10,9 @@ const OrderSummaryPage = () => {
                 loading ? 'loading...' :
                 <Container fluid={true} className="order-container">
                     <Row>
-                        <Col xs="12">
-                            <h4 className="text-center fastfood"> {orderDetails.restaurant.name} </h4>
+                        <Col xs="12" className="h4 fastfood fastfood-col">
+                            <img src={FastFood} alt="fastFood-logo" className="fastfood-logo" />
+                            <span>{orderDetails.restaurant.name}</span>
                         </Col>
                         <Col xs="12">
                             <p id="order-page-user-greeting">Hi <span> {orderDetails.user.name}, </span> </p>
