@@ -4,11 +4,12 @@ import './App.css';
 import {Container, Row, Col} from 'reactstrap'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
+import { far } from '@fortawesome/free-regular-svg-icons'
 import {faLocationArrow, faMobileAlt, faShoppingCart, faUserCircle } from '@fortawesome/free-solid-svg-icons'
 
 
 
-library.add(fab, faLocationArrow, faMobileAlt, faShoppingCart, faUserCircle)
+library.add(fab, far, faLocationArrow, faMobileAlt, faShoppingCart, faUserCircle)
 
 function App() {
   return (
