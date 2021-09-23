@@ -11,7 +11,7 @@ const SideNav = () => {
                 <li> <FontAwesomeIcon icon="user-circle" color="white" /> </li>
                 <li> 
                     <FontAwesomeIcon icon="shopping-cart" color="white" /> 
-                    <span className='badge badge-warning' id='lblCartCount'> 3 </span>
+                    <span className='badge badge-warning' id='lblCartCount'> 4 </span>
                 </li>
             </ul>
             <Nav navbar>

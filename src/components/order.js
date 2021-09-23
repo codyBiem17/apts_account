@@ -1,21 +1,29 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios'
 import { Container, Row, Col, Table } from "reactstrap";
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 
 const OrderSummaryPage = () => {
-    const [orderDetails, setOrderDetails] = useState({})
     const [loading, setLoading] = useState(true)
+    const [orderDetails, setOrderDetails] = useState({})
+    const [total, setTotal] = useState(null)
+  
 
     useEffect(()=>{
         const getUserOrder = async () => {
             try{
                 const url = 'https://indapi.kumba.io/webdev/assignment'
                 const userOrder = await axios.get(url)
-                // console.log(userOrder.data.order_id)
                 setOrderDetails(userOrder.data)
+                const subtotal = userOrder.data.items.map(item => {
+                    const itemCost = item.price * item.quantity
+                    const totalSalesTax = itemCost * (item.tax_pct / 100)
+                    const getTotalTaxSales = totalSalesTax + itemCost
+                    return getTotalTaxSales
+                })
+                const getTotalBill = subtotal.reduce( (x,y) => x + y )
+                setTotal(getTotalBill)   
                 setLoading(false)
             }
             catch (err){
@@ -24,6 +32,8 @@ const OrderSummaryPage = () => {
         }
         getUserOrder()
     }, [])
+
+  
 
     return (
         <>
@@ -114,7 +124,7 @@ const OrderSummaryPage = () => {
                                     {
                                         orderDetails.items.map(item => {
                                             return (
-                                                <>
+                                                <div className="items">
                                                     <tr>
                                                         <th scope="row">
                                                             Food-Name
@@ -141,14 +151,6 @@ const OrderSummaryPage = () => {
                                                     </tr>
                                                     <tr>
                                                         <th scope="row">
-                                                            Currency
-                                                        </th>
-                                                        <td>
-                                                            <p>{item.currency}</p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">
                                                             Tax_pct
                                                         </th>
                                                         <td>
@@ -163,11 +165,32 @@ const OrderSummaryPage = () => {
                                                             <p>{item.quantity}</p>
                                                         </td>
                                                     </tr>
-                                                </>
+                                                    <tr className="h5 subtotal">
+                                                        <th scope="row">
+                                                            Subtotal
+                                                        </th>
+                                                        <td>
+                                                            <p>{item.price * item.quantity}</p>
+                                                        </td>
+                                                    </tr>
+                                                </div>
                                             )
                                         })
                                     }
                                 </tbody>
+                            </Table>
+                        </Col>
+                        <hr />
+                        <Col xs="12">
+                            <Table> 
+                                <tr className="h5 subtotal">
+                                    <th scope="row">
+                                        Total
+                                    </th>
+                                    <td>
+                                        {total}
+                                    </td>
+                                </tr> 
                             </Table>
                         </Col>
                     </Row>
