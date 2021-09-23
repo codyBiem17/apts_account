@@ -33,7 +33,7 @@ const OrderSummaryPage = ({loading, orderDetails, total}) => {
                                         <th scope="row">Phone</th>
                                     </tr>
                                 </thead> */}
-                                <tbody className="d-md-none">
+                                <tbody>
                                     <tr>
                                         <th scope="row">
                                             Order Id
@@ -90,7 +90,7 @@ const OrderSummaryPage = ({loading, orderDetails, total}) => {
                                         <th scope="row">Phone</th>
                                     </tr>
                                 </thead> */}
-                                <tbody className="d-md-none">
+                                <tbody>
                                     {
                                         orderDetails.items.map(item => {
                                             return (
