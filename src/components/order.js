@@ -42,7 +42,7 @@ const OrderSummaryPage = () => {
                 <Container fluid={true} className="order-container">
                     <Row>
                         <Col xs="12">
-                            <h4 className="text-center"> {orderDetails.restaurant.name} </h4>
+                            <h4 className="text-center fastfood"> {orderDetails.restaurant.name} </h4>
                         </Col>
                         <Col xs="12">
                             <p id="order-page-user-greeting">Hi <span> {orderDetails.user.name}, </span> </p>
@@ -52,8 +52,8 @@ const OrderSummaryPage = () => {
                         </Col>
                         <hr />
                         <Col xs="12">
-                            <p className="h5">Check Order Details</p>
-                            <Table borderless>
+                            <h5>Check Order Details</h5>
+                            <Table striped>
                                 {/* <thead className="">
                                     <tr>
                                         <th scope="row">Order Id</th>
@@ -107,8 +107,8 @@ const OrderSummaryPage = () => {
                                 </tbody>
                             </Table>
                         </Col>
-                        <hr />
-                        <Col xs="12">
+                        <hr className="mb-5" />
+                        <Col xs="12" className="mb-5">
                             <p className="h5">Item Details</p>
                             <Table borderless>
                                 {/* <thead className="">
@@ -165,7 +165,7 @@ const OrderSummaryPage = () => {
                                                             <p>{item.quantity}</p>
                                                         </td>
                                                     </tr>
-                                                    <tr className="h5 subtotal">
+                                                    <tr className="h6 subtotal">
                                                         <th scope="row">
                                                             Subtotal
                                                         </th>
