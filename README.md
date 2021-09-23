@@ -1,3 +1,19 @@
+# Available for viewing @ https://customer-order-summary.netlify.app/y
+
+## Tools used are:
+HTML, CSS, REACTJS, REACTSTRAP
+ICON LIBRARIES: FONT AWESOME ICONS & HEROICONS
+
+## If order has more items, say 7 items
+1. If a customer orders 7 items, the total bill of the customer will also change as additional tax will be associated to newly added items
+
+## Mobile-Layout First approach responsiveness first
+
+## IN-PROGRESS
+To make website responsive across devices
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
