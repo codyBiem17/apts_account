@@ -21,13 +21,13 @@ const Footer = ({loading, orderDetails}) => {
                             <Col className="12 restaurant-info">
                                 <Row>
                                     <Col xs="6">
-                                        {orderDetails.restaurant.street},
+                                        {orderDetails.restaurant.street}
                                     </Col>
                                     <Col xs="6">
-                                        {orderDetails.restaurant.city},
+                                        {orderDetails.restaurant.city}
                                     </Col>
                                     <Col xs="6">
-                                        {orderDetails.restaurant.state},
+                                        {orderDetails.restaurant.state}
                                     </Col>
                                     <Col xs="6">
                                         {orderDetails.restaurant.zipcode}

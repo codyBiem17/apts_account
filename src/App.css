@@ -6,6 +6,7 @@
 .pages-col{
     padding-left: 0;
     padding-right: 0;
+    background-color: #212529;
 }
 .custom-navbar{
     border-top-left-radius: 7px;
@@ -134,4 +135,25 @@ img.fastfood-logo + span{
 }
 .restaurant-info .col-6{
     margin-bottom: 10px;
+}
+
+
+/* media queries */
+@media only screen and (min-width:768px){
+    .pages-col{
+        height: 570px;
+    }
+    .navbar-nav{
+        flex-direction: column;
+        /* height: 550px; */
+    }
+    img.fastfood-logo{
+        width: 5%
+    }
+    .footer{
+        margin-top: 0px;
+    }
+    .restaurant-info{
+        text-align: center;
+    }
 }
