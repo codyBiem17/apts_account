@@ -1,7 +1,9 @@
 ## Available for viewing @ https://customer-order-summary.netlify.app/y
 
 ### Tools used are:
+
 HTML, CSS, REACTJS, REACTSTRAP
+
 ICON LIBRARIES: FONT AWESOME ICONS & HEROICONS
 
 ### If order has more items, say 7 items
