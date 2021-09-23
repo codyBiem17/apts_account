@@ -84,6 +84,9 @@ img{
     margin-bottom: 25px;
     text-align: justify;
 }
+.fastfood, .subtotal{
+    color: rgb(128, 3, 117);
+}
 #order-page-user-greeting{
     font-size: 1.2rem;
     font-weight: 500;
@@ -97,9 +100,6 @@ img{
 -moz-box-shadow: 6px 5px 5px 0px rgba(0,0,0,0.75);
     margin-bottom: 20px;
     padding: 10px 10px;
-}
-.subtotal{
-    color: rgb(128, 3, 117);
 }
 tbody hr {
     margin-top: 30px;
