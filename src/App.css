@@ -78,7 +78,7 @@ img{
 }
 
 
-/* ******Order Summary Page****** */
+/*******Order Summary Page*******/
 .order-container{
     margin-top: 15px;
     margin-bottom: 25px;
@@ -94,13 +94,44 @@ img{
     margin-top: 30px;
 }
 .items{
-    /* border: 2px solid rgba(0,0,0,0.75);; */
     box-shadow: 6px 5px 5px 0px rgba(0,0,0,0.75);
--webkit-box-shadow: 6px 5px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 6px 5px 5px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 6px 5px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 5px 5px 0px rgba(0,0,0,0.75);
     margin-bottom: 20px;
     padding: 10px 10px;
 }
 tbody hr {
     margin-top: 30px;
+}
+
+
+/* ******Footer****** */
+.footer{
+    background-color: rgb(54, 1, 50);
+    color: white;
+    padding: 10px;
+    margin-top: 15px;
+}
+.fastfood-col{
+    text-align: center;
+    margin: 10px 0;
+}
+img.fastfood-logo{
+    width: 6%;
+    height: auto;
+}
+img.fastfood-logo + span{
+    margin-left: 4px;
+    position: relative;
+    top: 5px;
+}
+.contact-col{
+    margin: 15px 0 10px;
+    text-align: center;
+}
+.contact-us{
+    margin: 10px 0 15px;
+}
+.restaurant-info .col-6{
+    margin-bottom: 10px;
 }
