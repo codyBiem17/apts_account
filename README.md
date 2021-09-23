@@ -9,10 +9,9 @@ ICON LIBRARIES: FONT AWESOME ICONS & HEROICONS
 ### If order has more items, say 7 items
 1. If a customer orders 7 items, the total bill of the customer will also change as additional tax will be associated to newly added items
 
-### Mobile-Layout First approach responsiveness first
+### Mobile-Layout First approach responsiveness
 
-### IN-PROGRESS
-To make website responsive across devices
+### In-progress: To make website responsive across devices
 
 
 
