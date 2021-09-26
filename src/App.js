@@ -48,28 +48,31 @@ function App() {
 
   return (
     <div className="App">
-      <Container className="mt-4">
-        <Row className="mx-auto app-parent-row">
-          <Col xs="12" md="6" className="pages-col">
-            <SideNav />
-          </Col>
-          <Col xs="12" md="6">
-            <Router>
-                <Switch>
-                  <Route exact path="/">
-                    <Profile loading={loading} userDetails={userDetails} />
-                  </Route>
-                  <Route exact path="/order">
-                    <OrderSummaryPage loading={loading} orderDetails={orderDetails} total={total} />
-                  </Route>
-                </Switch>
-              </Router>
-          </Col>
-          <Col xs="12" className="footer">
-            <Footer loading={loading}  orderDetails={orderDetails} />
-          </Col>
-        </Row>
-      </Container>
+      {
+        loading ? <p id="loading">loading...please wait</p> :
+          <Container className="mt-4">
+          <Row className="mx-auto app-parent-row">
+            <Col xs="12" md="6" className="pages-col">
+              <SideNav />
+            </Col>
+            <Col xs="12" md="6">
+              <Router>
+                  <Switch>
+                    <Route exact path="/">
+                      <Profile userDetails={userDetails} />
+                    </Route>
+                    <Route exact path="/order">
+                      <OrderSummaryPage orderDetails={orderDetails} total={total} />
+                    </Route>
+                  </Switch>
+                </Router>
+            </Col>
+            <Col xs="12" className="footer">
+              <Footer orderDetails={orderDetails} />
+            </Col>
+          </Row>
+        </Container>
+      }
     </div>
   );
 }

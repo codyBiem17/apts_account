@@ -1,3 +1,12 @@
+#loading{
+    width: 70%;
+    text-align: center;
+    margin: 100px auto;
+    padding: 10px;
+    background-color: rgb(128, 3, 117);
+    border-radius: 10px;
+    color: white;
+}
 .app-parent-row{
     box-shadow: 10px 10px 33px 0px rgba(0,0,0,0.41);
     -webkit-box-shadow: 10px 10px 33px 0px rgba(0,0,0,0.41);
