@@ -73,7 +73,7 @@ const OrderSummaryPage = ({orderDetails, total}) => {
                                     return (
                                         <div className="items" key={item.name}>
                                             <tr>
-                                                <th scope="row">
+                                                <th scope="row" colSpan="2">
                                                     Food-Name
                                                 </th>
                                                 <td>
@@ -81,7 +81,7 @@ const OrderSummaryPage = ({orderDetails, total}) => {
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">
+                                                <th scope="row" colSpan="2">
                                                     Category
                                                 </th>
                                                 <td>
@@ -89,7 +89,7 @@ const OrderSummaryPage = ({orderDetails, total}) => {
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">
+                                                <th scope="row" colSpan="2">
                                                     Price
                                                 </th>
                                                 <td>
@@ -97,7 +97,7 @@ const OrderSummaryPage = ({orderDetails, total}) => {
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">
+                                                <th scope="row" colSpan="2">
                                                     Tax_pct
                                                 </th>
                                                 <td>
@@ -105,7 +105,7 @@ const OrderSummaryPage = ({orderDetails, total}) => {
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">
+                                                <th scope="row" colSpan="2">
                                                     Quantity
                                                 </th>
                                                 <td>
@@ -113,11 +113,11 @@ const OrderSummaryPage = ({orderDetails, total}) => {
                                                 </td>
                                             </tr>
                                             <tr className="h6 subtotal">
-                                                <th scope="row">
+                                                <th scope="row" colSpan="2">
                                                     Subtotal
                                                 </th>
                                                 <td>
-                                                    <p>{item.price * item.quantity}</p>
+                                                    <p>{item.currency + " " + item.price * item.quantity}</p>
                                                 </td>
                                             </tr>
                                         </div>
@@ -132,7 +132,7 @@ const OrderSummaryPage = ({orderDetails, total}) => {
                     <Table> 
                         <tr className="h5 subtotal">
                             <th scope="row">
-                                Total
+                                Total Bill
                             </th>
                             <td>
                                 {total}
