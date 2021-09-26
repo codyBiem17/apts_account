@@ -1,5 +1,4 @@
 import { Container, Row, Col, Table } from "reactstrap";
-import FastFood from '../assets/images/fast-food.png'
 
 
 const OrderSummaryPage = ({orderDetails, total}) => {
@@ -7,9 +6,8 @@ const OrderSummaryPage = ({orderDetails, total}) => {
     return (
         <Container fluid={true} className="order-container">
             <Row>
-                <Col xs="12" className="h4 fastfood fastfood-col">
-                    <img src={FastFood} alt="fastFood-logo" className="fastfood-logo" />
-                    <span>{orderDetails.restaurant.name}</span>
+                <Col className="order-summary-page">
+                    Order Summary
                 </Col>
                 <Col xs="12">
                     <p id="order-page-user-greeting">Hi <span> {orderDetails.user.name}, </span> </p>
