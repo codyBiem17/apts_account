@@ -15,27 +15,25 @@
 .pages-col{
     padding-left: 0;
     padding-right: 0;
-    background-color: #212529;
+    /* background-color: #212529; */
 }
 .custom-navbar{
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
     padding-left: 10px;
     padding-right: 10px;
 }
-.custom-navbar > ul{
+.custom-navbar > ul.user-cart-icon{
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
     list-style: none;
 }
-.custom-navbar > ul li{
+.custom-navbar > ul.user-cart-icon li{
     margin: 0 10px;
 }
-.custom-navbar > ul li:nth-child(2){
+.custom-navbar > ul.user-cart-icon li:nth-child(2){
     position: relative;
 }
-.custom-navbar > ul li:nth-child(2) span{
+.custom-navbar > ul.user-cart-icon li:nth-child(2) span{
     position: absolute;
     top: -2px;
     left: 10px; 
@@ -94,6 +92,11 @@ img{
     margin-bottom: 25px;
     text-align: justify;
 }
+.order-summary-page{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
 .fastfood, .subtotal{
     color: rgb(128, 3, 117);
 }
@@ -149,15 +152,20 @@ img.fastfood-logo + span{
 
 /* media queries */
 @media only screen and (min-width:768px){
-    .pages-col{
-        height: 570px;
-    }
-    .navbar-nav{
-        flex-direction: column;
-        /* height: 550px; */
-    }
     img.fastfood-logo{
         width: 5%
+    }
+    .navbar{
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+    .custom-navbar > ul.user-cart-icon {
+        position: absolute;
+        top: 15px;
+        right: 30px;
+    }
+    .my-account{
+        font-size: 1.5rem;
     }
     .footer{
         margin-top: 0px;

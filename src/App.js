@@ -52,10 +52,10 @@ function App() {
         loading ? <p id="loading">loading...please wait</p> :
           <Container className="mt-4">
           <Row className="mx-auto app-parent-row">
-            <Col xs="12" md="6" className="pages-col">
-              <SideNav />
+            <Col xs="12" className="pages-col">
+              <SideNav orderDetails={orderDetails} />
             </Col>
-            <Col xs="12" md="6">
+            <Col xs="12">
               <Router>
                   <Switch>
                     <Route exact path="/">
